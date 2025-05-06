@@ -34,7 +34,7 @@ Toggle.Draggable = true
 local Main = Instance.new("Frame", ScreenGui)
 Main.Size = UDim2.new(0, 400, 0, 250)
 Main.Position = UDim2.new(0, 100, 0.5, -125)
-Main.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+Main.BackgroundColor3 = Color3.fromRGB(86, 20, 201)
 Main.Visible = false
 Main.Active = true
 Main.Draggable = true
@@ -60,7 +60,7 @@ ScriptBox.TextYAlignment = Enum.TextYAlignment.Top
 ScriptBox.TextWrapped = true
 ScriptBox.MultiLine = true
 ScriptBox.TextSize = 16
-ScriptBox.BackgroundColor3 = Color3.fromRGB(100, 100, 100)
+ScriptBox.BackgroundColor3 = Color3.fromRGB(100, 150, 200)
 ScriptBox.TextColor3 = Color3.fromRGB(255, 255, 255)
 ScriptBox.Font = Enum.Font.SourceSans
 
