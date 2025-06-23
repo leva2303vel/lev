@@ -1,0 +1,121 @@
+	-- Ссылка на Библиотеку
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/Robojini/Tuturial_UI_Library/main/UI_Template_1"))()
+
+
+local Window = Library.CreateLib("Cherick", "RJTheme8")
+
+-- Секция
+local Tab = Window:NewTab("Базовые функции")
+
+-- Подсекция
+local Section = Tab:NewSection("")
+
+Section:NewButton("infiniteyield", "ButtonInfo", function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+end)
+
+Section:NewButton("Инструмент телепортации", "ТелепортИнфо", function()
+    local Tele = Instance.new("Tool", game.Players.LocalPlayer.Backpack)
+Tele.RequiresHandle = false
+Tele.RobloxLocked = true
+Tele.Name = "TPTool"
+Tele.ToolTip = "Teleport Tool"
+Tele.Equipped:connect(function(Mouse)
+	Mouse.Button1Down:connect(function()
+		if Mouse.Target then
+			game.Workspace:FindFirstChild(game.Players.LocalPlayer.Name).HumanoidRootPart.CFrame = (CFrame.new(Mouse.Hit.x, Mouse.Hit.y + 5, Mouse.Hit.z))
+		end
+	end)
+end)
+end)
+
+Section:NewButton("Проходить насквозь всего", "noclipInfo", function()
+    _G.noclip = not _G.noclip
+print(_G.noclip)
+
+if not game:GetService('Players').LocalPlayer.Character:FindFirstChild("LowerTorso") then
+	while _G.noclip do
+		game:GetService("RunService").Stepped:wait()
+		game.Players.LocalPlayer.Character.Head.CanCollide = false
+		game.Players.LocalPlayer.Character.Torso.CanCollide = false
+	end
+else
+	if _G.InitNC ~= true then     
+		_G.NCFunc = function(part)      
+			local pos = game:GetService('Players').LocalPlayer.Character.LowerTorso.Position.Y  
+			if _G.noclip then             
+				if part.Position.Y > pos then                 
+					part.CanCollide = false             
+				end        
+			end    
+		end      
+		_G.InitNC = true 
+	end 
+	 
+	game:GetService('Players').LocalPlayer.Character.Humanoid.Touched:connect(_G.NCFunc) 
+end
+end)
+
+
+
+
+-- Слайдер
+Section:NewSlider("Изменение скорости", "SpeedInfo", 500, 0, function(s) 
+    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
+end)
+
+
+local Tab = Window:NewTab("Секрет")
+
+local Section = Tab:NewSection("")
+
+Section:NewButton("Executor", "ExecutorInfo", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/leva2303vel/lev/refs/heads/main/ProjectBaza.lua"))()
+end)
+
+Section:NewButton("infiniteyield", "ButtonInfo", function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+end)
+
+Section:NewButton("NexusX", "NexusX", function()
+    loadstring(game:HttpGet("https://fromhatai.neocities.org/Private/NexusX.lua"))()
+end)
+
+Section:NewButton("DexV3", "DexInfo", function()
+    loadstring(game:HttpGet("https://gist.githubusercontent.com/dannythehacker/1781582ab545302f2b34afc4ec53e811/raw/ee5324771f017073fc30e640323ac2a9b3bfc550/dark%2520dex%2520v4"))()
+end)
+
+Section:NewButton("Rc7", "Rc7", function()
+    loadstring(game:HttpGet("https://pastefy.app/0wIrotlY/raw"))()
+end)
+
+Section:NewButton("Luacore ss", "Luacore ss", function()
+    loadstring(game:HttpGet("https://pastefy.app/dbld5bKT/raw"))()
+end)
+
+Section:NewButton("Sonic Rc7", "Sonic Rc7", function()
+    loadstring(game:HttpGet("https://pastefy.app/eRz4wUS0/raw"))()
+end)
+
+
+local ScreenGui = Instance.new("ScreenGui")
+ScreenGui.Name = "ScreenGui"
+ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+ScreenGui.ResetOnSpawn = false
+local Toggle = Instance.new("TextButton")
+Toggle.Name = "Toggle"
+Toggle.Parent = ScreenGui
+Toggle.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Toggle.Position = UDim2.new(0, 0, 0.454706937, 0)
+Toggle.Size = UDim2.new(0, 62, 0,50)
+Toggle.Font = Enum.Font.SourceSans
+Toggle.Text = "Cherick"
+Toggle.TextColor3 = Color3.fromRGB(248, 248, 248)
+Toggle.TextSize = 20.000
+Toggle.Draggable = true
+Toggle.MouseButton1Click:connect(function()
+Library:ToggleUI()
+end)
+local Corner = Instance.new("UICorner")
+Corner.Name = "Corner"
+Corner.Parent = Toggle
